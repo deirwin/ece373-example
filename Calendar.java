@@ -14,6 +14,7 @@ public class Calendar {
         int month = Integer.parseInt(args[0]);    // month (Jan = 1, Dec = 12)	
         if (month < 1 || month > 12) {
           System.out.println("Month OutOfBoundsError");
+	  System.exit(1);
          }
         int year = Integer.parseInt(args[1]);     // year
 
@@ -24,15 +25,11 @@ public class Calendar {
 	// get starting day
 	Day myday = new Day();
       	int d = myday.getDay(month, 1, year);
-if (d < 1 || d > 31) {
-  System.out.println("Day OutOfBoundsError");
-}
-
-
-
-
+        if (d < 1 || d > 31) {
+          System.out.println("Day OutOfBoundsError");
+          System.exit(1);
+        }
         toScreen.setStartDay(d);
-
         toScreen.printCalendar();
      }
 }
